@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KakaoSdkAll Example</string>
+    <string name="KAKAO_NATIVE_APP_KEY">c9b98a7bff62a096ba071901a19a2d86</string>
+</resources>
