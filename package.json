@@ -34,7 +34,9 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "kakao",
+    "kakao-tam"
   ],
   "repository": "https://github.com/kakao-tam/react-native-kakao-sdk-all",
   "author": "wisdomcdh <wisdomcdh@gmail.com> (https://github.com/wisdomcdh)",
