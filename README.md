@@ -37,7 +37,7 @@ import KakaoSDK, { UserApi } from "react-native-kakao-sdk-all";
 
 // ...
 
-await KakaoSDK.init();
+await KakaoSDK.init(); // KAKAO_NATIVE_APP_KEY 리소스가 설정된 경우 생략 가능
 
 if(await UserApi.isKakaoTalkLoginAvailable()) {
     await UserApi.loginWithKakaoTalk();
@@ -45,7 +45,7 @@ if(await UserApi.isKakaoTalkLoginAvailable()) {
     await UserApi.loginWithKakaoAccount();
 }
 
-let me = UserApi.me();
+let me = await UserApi.me();
 ```
 
 example 프로젝트에서 제공되는 모든 API를 테스트 할 수 있습니다.
