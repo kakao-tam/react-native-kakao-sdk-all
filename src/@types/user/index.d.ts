@@ -274,6 +274,7 @@ interface ServiceTermsParam {
 }
 
 interface ShippingAddressesParam {
+    addressId?: number | null;
     fromUpdateAt?: Date | null;
     pageSize?: number | null;
 }
