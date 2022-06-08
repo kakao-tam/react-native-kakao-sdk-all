@@ -111,44 +111,6 @@ export const TextTemplate = (param: TextTemplate): TextTemplate => {
     return param
 }
 
-const KakaoSDK: IKakaoSdk = {
-    init: Task<InitParam, boolean>(KakaoSdkCommonModule.init),
-    isInitialized: Task<undefined, boolean>(KakaoSdkCommonModule.isInitialized, {isPrimitiveResult: true, noarg: true})
-}
-
-export const UserApi: IUserApi = {
-    accessTokenInfo: Task<undefined, AccessTokenInfo>(UserApiClientModule.accessTokenInfo, {noarg: true}),
-    certLoginWithKakaoAccount: Task<CertLoginWithKakaoAccountParam, CertTokenInfo>(UserApiClientModule.certLoginWithKakaoAccount, {
-        cleanser: Cleanser.certTokenInfo
-    }),
-    certLoginWithKakaoTalk: Task<CertLoginWithKakaoTalkParam, CertTokenInfo>(UserApiClientModule.certLoginWithKakaoTalk, {
-        cleanser: Cleanser.certTokenInfo
-    }),
-    isKakaoTalkLoginAvailable: Task<undefined, boolean>(UserApiClientModule.isKakaoTalkLoginAvailable, {
-        isPrimitiveResult: true,
-        noarg: true
-    }),
-    loginWithKakaoAccount: Task<LoginWithKakaoAccountParam, OAuthToken>(UserApiClientModule.loginWithKakaoAccount, {
-        cleanser: Cleanser.oauthToken
-    }),
-    loginWithKakaoTalk: Task<LoginWithKakaoTalkParam, OAuthToken>(UserApiClientModule.loginWithKakaoTalk, {
-        cleanser: Cleanser.oauthToken
-    }),
-    logout: Task<undefined, boolean>(UserApiClientModule.logout, {isPrimitiveResult: true, noarg: true}),
-    me: Task<MeParam, User>(UserApiClientModule.me, {
-        cleanser: Cleanser.user
-    }),
-    revokeScopes: Task<RevokeScopesParam, ScopeInfo>(UserApiClientModule.revokeScopes),
-    scopes: Task<ScopesParam, ScopeInfo>(UserApiClientModule.scopes),
-    serviceTerms: Task<ServiceTermsParam, UserServiceTerms>(UserApiClientModule.serviceTerms, {cleanser: Cleanser.serviceTerms}),
-    shippingAddresses: Task<ShippingAddressesParam, UserShippingAddresses>(UserApiClientModule.shippingAddresses, {
-        cleanser: Cleanser.shippingAddresses,
-        cleanserRequest: CleanserRequest.shippingAddresses
-    }),
-    signup: Task<SignupParam, boolean>(UserApiClientModule.signup, {isPrimitiveResult: true}),
-    unlink: Task<undefined, boolean>(UserApiClientModule.unlink, {isPrimitiveResult: true, noarg: true}),
-    updateProfile: Task<UpdateProfileParam, boolean>(UserApiClientModule.updateProfile)
-}
 
 export const AuthApi: IAuthApi = {
     hasToken: Task<undefined, boolean>(AuthApiClientModule.hasToken, {noarg: true}),
@@ -163,20 +125,6 @@ export const PickerApi: IPickerApi = {
     selectFriendPopup: Task<OpenPickerFriendRequestParams, SelectedUsers>(PickerApiClientModule.selectFriendPopup),
     selectFriends: Task<OpenPickerFriendRequestParams, SelectedUsers>(PickerApiClientModule.selectFriends),
     selectFriendsPopup: Task<OpenPickerFriendRequestParams, SelectedUsers>(PickerApiClientModule.selectFriendsPopup),
-}
-
-export const TalkApi: ITalkApi = {
-    addChannelUrl: Task<AddChannelParam, string>(TalkApiClientModule.addChannelUrl, {isPrimitiveResult: true}),
-    channelChatUrl: Task<ChannelChatParam, string>(TalkApiClientModule.channelChatUrl, {isPrimitiveResult: true}),
-    channels: Task<ChannelParam, Channels>(TalkApiClientModule.channels, {cleanser: Cleanser.channels}),
-    friends: Task<FriendsParam, Friends>(TalkApiClientModule.friends),
-    profile: Task<undefined, TalkProfile>(TalkApiClientModule.profile, {noarg: true}),
-    sendCustomMemo: Task<SendCustomMemoParam, boolean>(TalkApiClientModule.sendCustomMemo, {isPrimitiveResult: true}),
-    sendDefaultMemo: Task<SendDefaultMemoParam, boolean>(TalkApiClientModule.sendDefaultMemo, {isPrimitiveResult: true}),
-    sendScrapMemo: Task<SendScrapMemoParam, boolean>(TalkApiClientModule.sendScrapMemo, {isPrimitiveResult: true}),
-    sendCustomMessage: Task<SendCustomMessageParam, MessageSendResult>(TalkApiClientModule.sendCustomMessage),
-    sendDefaultMessage: Task<SendDefaultMessageParam, MessageSendResult>(TalkApiClientModule.sendDefaultMessage),
-    sendScrapMessage: Task<SendScrapMessageParam, MessageSendResult>(TalkApiClientModule.sendScrapMessage)
 }
 
 export const LinkApi: ILinkApi = {
@@ -204,4 +152,91 @@ export const StoryApi: IStoryApi = {
     story: Task<StoryParam, Story>(StoryApiClientModule.story),
     upload: Task<StoryUploadParam, string[]>(StoryApiClientModule.upload)
 }
-export default KakaoSDK;
+
+// 카카오톡 API
+export class TalkApi {
+    // 채널 추가 URL
+    public static addChannelUrl = Task<AddChannelParam, string>(TalkApiClientModule.addChannelUrl, {isPrimitiveResult: true});
+    // 채널 대화방 URL
+    public static channelChatUrl = Task<ChannelChatParam, string>(TalkApiClientModule.channelChatUrl, {isPrimitiveResult: true});
+    // 채널 관계 조회
+    public static channels = Task<ChannelParam, Channels>(TalkApiClientModule.channels, {cleanser: Cleanser.channels});
+    // 친구 목록 조회
+    public static friends = Task<FriendsParam, Friends>(TalkApiClientModule.friends);
+    // 카카오톡 프로필 조회
+    public static profile = Task<undefined, TalkProfile>(TalkApiClientModule.profile, {noarg: true});
+    // 나에게 커스텀 메시지 보내기
+    public static sendCustomMemo = Task<SendCustomMemoParam, boolean>(TalkApiClientModule.sendCustomMemo, {isPrimitiveResult: true});
+    // 나에게 기본 메시지 보내기
+    public static sendDefaultMemo = Task<SendDefaultMemoParam, boolean>(TalkApiClientModule.sendDefaultMemo, {isPrimitiveResult: true});
+    // 나에게 스크랩 메시지 보내기
+    public static sendScrapMemo = Task<SendScrapMemoParam, boolean>(TalkApiClientModule.sendScrapMemo, {isPrimitiveResult: true});
+    // 커스텀 메시지 보내기
+    public static sendCustomMessage = Task<SendCustomMessageParam, MessageSendResult>(TalkApiClientModule.sendCustomMessage);
+    // 기본 메시지 보내기
+    public static sendDefaultMessage = Task<SendDefaultMessageParam, MessageSendResult>(TalkApiClientModule.sendDefaultMessage);
+    // 스크랩 메시지 보내기
+    public static sendScrapMessage = Task<SendScrapMessageParam, MessageSendResult>(TalkApiClientModule.sendScrapMessage)
+}
+
+// 사용자관리 API
+export class UserApi {
+    // 현재 로그인한 사용자의 엑세스 토큰 정보 보기
+    public static accessTokenInfo = Task<undefined, AccessTokenInfo>(UserApiClientModule.accessTokenInfo, {noarg: true});
+    // 채널 메시지 방식 카카오톡 인증 로그인
+    public static certLoginWithKakaoAccount = Task<CertLoginWithKakaoAccountParam, CertTokenInfo>(UserApiClientModule.certLoginWithKakaoAccount, {
+        cleanser: Cleanser.certTokenInfo
+    });
+    // 앱투앱 방식 카카오톡 인증 로그인
+    public static certLoginWithKakaoTalk = Task<CertLoginWithKakaoTalkParam, CertTokenInfo>(UserApiClientModule.certLoginWithKakaoTalk, {
+        cleanser: Cleanser.certTokenInfo
+    });
+    // 카카오톡 로그인 가능(철치)여부 검사
+    public static isKakaoTalkLoginAvailable = Task<undefined, boolean>(UserApiClientModule.isKakaoTalkLoginAvailable, {
+        isPrimitiveResult: true,
+        noarg: true
+    });
+    // 카카오계정 로그인 (브라우저 이용)
+    public static loginWithKakaoAccount = Task<LoginWithKakaoAccountParam, OAuthToken>(UserApiClientModule.loginWithKakaoAccount, {
+        cleanser: Cleanser.oauthToken
+    });
+    // 카카오톡 로그인 (카카오톡 이용)
+    public static loginWithKakaoTalk = Task<LoginWithKakaoTalkParam, OAuthToken>(UserApiClientModule.loginWithKakaoTalk, {
+        cleanser: Cleanser.oauthToken
+    });
+    // 현재 토큰을 만료시키고 로그아웃
+    public static logout = Task<undefined, boolean>(UserApiClientModule.logout, {isPrimitiveResult: true, noarg: true});
+    // 사용자 정보 요청
+    public static me = Task<MeParam, User>(UserApiClientModule.me, {
+        cleanser: Cleanser.user
+    });
+    // 특정 동의항목 철회
+    public static revokeScopes = Task<RevokeScopesParam, ScopeInfo>(UserApiClientModule.revokeScopes);
+    // 사용자 동의 항목 목록 상세
+    public static scopes = Task<ScopesParam, ScopeInfo>(UserApiClientModule.scopes);
+    // 서비스약관 동의 내역 목록 상세
+    public static serviceTerms = Task<ServiceTermsParam, UserServiceTerms>(UserApiClientModule.serviceTerms, {cleanser: Cleanser.serviceTerms});
+    // 사용자 배송지 목록
+    public static shippingAddresses = Task<ShippingAddressesParam, UserShippingAddresses>(UserApiClientModule.shippingAddresses, {
+        cleanser: Cleanser.shippingAddresses,
+        cleanserRequest: CleanserRequest.shippingAddresses
+    });
+    // 앱 연결요청(자동연결이 아닌경우)
+    public static signup = Task<SignupParam, boolean>(UserApiClientModule.signup, {isPrimitiveResult: true});
+    // 연결 끊기
+    public static unlink = Task<undefined, boolean>(UserApiClientModule.unlink, {isPrimitiveResult: true, noarg: true});
+    // 사용자 부가정보 추가 및 수정
+    public static updateProfile = Task<UpdateProfileParam, boolean>(UserApiClientModule.updateProfile);
+}
+
+// KakaoSDK
+export default class KakaoSDK {
+    // 초기화<br>
+    // 직접 초기화 하기 보단, KAKAO_NATIVE_APP_KEY 리소스를 설정하여 자동으로 초기화 되도록 하시는 것을 권장드립니다.
+    public static init = Task<InitParam, boolean>(KakaoSdkCommonModule.init);
+    // 초기화 여부
+    public static isInitialized = Task<undefined, boolean>(KakaoSdkCommonModule.isInitialized, {
+        isPrimitiveResult: true,
+        noarg: true
+    });
+}

@@ -1,5 +1,5 @@
 import type { SectionListData } from "react-native";
-import KakaoSdk, {
+import KakaoSDK, {
     AuthApi,
     FeedTemplate,
     LinkApi,
@@ -57,11 +57,16 @@ const ApiSample: SectionListData<ICallApi>[] = [
         data: [
             {
                 name: 'init',
-                exec: () => KakaoSdk.init()
+                exec: (log) => {
+                    let param: InitParam = {
+                    }
+                    log(param, 'REQ');
+                    return KakaoSDK.init(param)
+                }
             },
             {
                 name: 'isInitialized',
-                exec: () => KakaoSdk.isInitialized()
+                exec: () => KakaoSDK.isInitialized()
             }
         ]
     },
