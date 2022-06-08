@@ -280,11 +280,11 @@ interface ShippingAddressesParam {
 }
 
 interface SignupParam {
-    properties?: {} | null;
+    properties?: Map | null;
 }
 
 interface UpdateProfileParam {
-    properties: {}
+    properties: Map
 }
 
 interface IUserApi {
