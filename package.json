@@ -1,6 +1,6 @@
 {
   "name": "react-native-kakao-sdk-all",
-  "version": "2.10.1003",
+  "version": "2.10.1004",
   "description": "react-native-kakao-sdk-all",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
