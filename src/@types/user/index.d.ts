@@ -1,4 +1,4 @@
-//
+// Prompt
 type Prompt = "login" | "cert"
 // 연령대 (한국 나이)
 type AgeRange =
@@ -15,10 +15,16 @@ type AgeRange =
     | '90~'
     | 'UNKNOWN';
 // 생일의 양력/음력
+// - SOLAR: 양력
+// - LUNAR: 음력
 type BirthdayType = 'SOLAR' | 'LUNAR' | 'UNKNOWN'
 // 성별
+// - male: 남
+// - female: 여
 type Gender = 'male' | 'female' | 'UNKNOWN'
-// 공의 항목 타입 (PRIVACY: 개인정보 보호, SERVICE: 접근권한 관리)
+// 공의 항목 타입
+// - PRIVACY: 개인정보 보호
+// - SERVICE: 접근권한 관리
 type ScopeType = 'PRIVACY' | 'SERVICE'
 // 배송 주소 타입
 type ShippingAddressType = 'OLD' | 'NEW' | 'UNKNOWN'
@@ -223,6 +229,7 @@ interface AppServiceTerms {
     updatedAt: Date;
 }
 
+// 채널 메시지 방식 인증 로그인 파라메터
 interface CertLoginWithKakaoAccountParam {
     prompts?: Prompt[] | null;
     state?: string | null;
@@ -232,6 +239,7 @@ interface CertLoginWithKakaoAccountParam {
     loginHint?: string | null;
 }
 
+// 앱투앱 방식 인증 로그인 파라메터
 interface CertLoginWithKakaoTalkParam {
     prompts?: Prompt[] | null;
     state?: string | null;
@@ -241,6 +249,7 @@ interface CertLoginWithKakaoTalkParam {
     serviceTerms?: string[] | null;
 }
 
+// 카카오계정 로그인(웹) 파라메터
 interface LoginWithKakaoAccountParam {
     prompts?: Prompt[] | null;
     loginHint?: string | null;
@@ -250,6 +259,7 @@ interface LoginWithKakaoAccountParam {
     scopes?: string[] | null;
 }
 
+// 카카오톡 로그인 파라메터
 interface LoginWithKakaoTalkParam {
     requestCode?: number | null;
     nonce?: string | null;
@@ -257,64 +267,50 @@ interface LoginWithKakaoTalkParam {
     serviceTerms?: string[] | null;
 }
 
+// 사용자 정보 조회 파라메터
 interface MeParam {
+    // URL을 https로 받을지 여부 (기본값 true)
     secureReSource?: boolean | null;
 }
 
+// 동의항목 철회 파라메터
 interface RevokeScopesParam {
+    // 동의항목
     scopes: string[];
 }
 
+// 동의항목 목록 조회 파라메터
 interface ScopesParam {
+    // 동의항목
     scopes?: string[] | null;
 }
 
+// 서비스약관 동의 내역 목록 조회 파라메터
 interface ServiceTermsParam {
+    // 앱에 사용 설정된 서빗 약관 목록을 함께 요청하려면 'app_service_terms' 값을 지정
     extra?: string | null;
 }
 
+// 사용자 배송지 목록 조회 파라메터
 interface ShippingAddressesParam {
+    // 주소ID
+    addressId?: number | null;
+    // 갱신일시<br>
+    // 주소가 많은경우 해당 시각을 기준으로 조회 합니다.
     fromUpdateAt?: Date | null;
+    // 페이지 사이즈<br>
+    // 한 페이지에 표시될 주소 수(기본:10)
     pageSize?: number | null;
 }
 
+// 앱 연결요청 파라메터<br>
+// 자동연결이 아닌경우만 사용되며 2018년 이후 앱은 기본 자동연결 됩니다.
 interface SignupParam {
-    properties?: {} | null;
+    properties?: Map | null;
 }
 
+// 사용자 부가정보 설정 파라메터
 interface UpdateProfileParam {
-    properties: {}
-}
-
-interface IUserApi {
-    // 현재 로그인한 사용자의 엑세스 토큰 정보 보기
-    accessTokenInfo: () => Promise<AccessTokenInfo>;
-    // 채널 메시지 방식 카카오톡 인증 로그인
-    certLoginWithKakaoAccount: (param?: CertLoginWithKakaoAccountParam) => Promise<CertTokenInfo>;
-    // 앱투앱 방식 카카오톡 인증 로그인
-    certLoginWithKakaoTalk: (param?: CertLoginWithKakaoTalkParam) => Promise<CertTokenInfo>;
-    // 카카오톡 로그인 가능(철치)여부 검사
-    isKakaoTalkLoginAvailable: () => Promise<boolean>;
-    // 카카오계정 로그인 (브라우저 이용)
-    loginWithKakaoAccount: (param?: LoginWithKakaoAccountParam) => Promise<OAuthToken>;
-    // 카카오톡 로그인 (카카오톡 이용)
-    loginWithKakaoTalk: (param?: LoginWithKakaoTalkParam) => Promise<OAuthToken>;
-    // 현재 토큰을 만료시키고 로그아웃
-    logout: () => Promise<boolean>;
-    // 사용자 정보 요청
-    me: (param?: MeParam) => Promise<User>;
-    // 특정 동의항목 철회
-    revokeScopes: (param: RevokeScopesParam) => Promise<ScopeInfo>;
-    // 사용자 동의 항목 목록 상세
-    scopes: (param?: ScopesParam) => Promise<ScopeInfo>;
-    // 서비스약관 동의 내역 목록 상세
-    serviceTerms: (param?: ServiceTermsParam) => Promise<UserServiceTerms>;
-    // 사용자 배송지 목록
-    shippingAddresses: (param?: ShippingAddressesParam) => Promise<UserShippingAddresses>;
-    // 앱 연결요청(자동연결이 아닌경우)
-    signup: (param?: SignupParam) => Promise<boolean>;
-    // 연결 끊기
-    unlink: () => Promise<boolean>;
-    // 사용자 부가정보 추가 및 수정
-    updateProfile: (param: UpdateProfileParam) => Promise<boolean>;
+    // 부가정보
+    properties: Map
 }
