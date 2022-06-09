@@ -269,6 +269,7 @@ interface LoginWithKakaoTalkParam {
 
 // 사용자 정보 조회 파라메터
 interface MeParam {
+    // URL을 https로 받을지 여부 (기본값 true)
     secureReSource?: boolean | null;
 }
 

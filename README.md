@@ -19,7 +19,6 @@ npx pod-install
 ```sh
 yarn add react-native-kakao-sdk-all
 yarn
-npx pod-install
 ```
 
 버전규칙 X.Y.Z
