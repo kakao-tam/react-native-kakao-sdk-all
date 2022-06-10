@@ -11,41 +11,41 @@ PODS:
     - React-jsi (= 0.64.1)
     - ReactCommon/turbomodule/core (= 0.64.1)
   - glog (0.3.5)
-  - KakaoSDK (2.10.0):
-    - KakaoSDKAuth (= 2.10.0)
-    - KakaoSDKCommon (= 2.10.0)
-    - KakaoSDKFriend (= 2.10.0)
-    - KakaoSDKLink (= 2.10.0)
-    - KakaoSDKNavi (= 2.10.0)
-    - KakaoSDKStory (= 2.10.0)
-    - KakaoSDKTalk (= 2.10.0)
-    - KakaoSDKTemplate (= 2.10.0)
-    - KakaoSDKUser (= 2.10.0)
-  - KakaoSDKAuth (2.10.0):
-    - KakaoSDKCommon (= 2.10.0)
-  - KakaoSDKCommon (2.10.0):
-    - KakaoSDKCommon/Common (= 2.10.0)
-    - KakaoSDKCommon/Network (= 2.10.0)
-  - KakaoSDKCommon/Common (2.10.0)
-  - KakaoSDKCommon/Network (2.10.0):
+  - KakaoSDK (2.10.1):
+    - KakaoSDKAuth (= 2.10.1)
+    - KakaoSDKCommon (= 2.10.1)
+    - KakaoSDKFriend (= 2.10.1)
+    - KakaoSDKLink (= 2.10.1)
+    - KakaoSDKNavi (= 2.10.1)
+    - KakaoSDKStory (= 2.10.1)
+    - KakaoSDKTalk (= 2.10.1)
+    - KakaoSDKTemplate (= 2.10.1)
+    - KakaoSDKUser (= 2.10.1)
+  - KakaoSDKAuth (2.10.1):
+    - KakaoSDKCommon (= 2.10.1)
+  - KakaoSDKCommon (2.10.1):
+    - KakaoSDKCommon/Common (= 2.10.1)
+    - KakaoSDKCommon/Network (= 2.10.1)
+  - KakaoSDKCommon/Common (2.10.1)
+  - KakaoSDKCommon/Network (2.10.1):
     - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.10.0)
-  - KakaoSDKFriend (2.10.0):
-    - KakaoSDKUser (= 2.10.0)
-  - KakaoSDKLink (2.10.0):
-    - KakaoSDKCommon (= 2.10.0)
-    - KakaoSDKTemplate (= 2.10.0)
-  - KakaoSDKNavi (2.10.0):
-    - KakaoSDKCommon/Common (= 2.10.0)
-  - KakaoSDKStory (2.10.0):
-    - KakaoSDKUser (= 2.10.0)
-  - KakaoSDKTalk (2.10.0):
-    - KakaoSDKTemplate (= 2.10.0)
-    - KakaoSDKUser (= 2.10.0)
-  - KakaoSDKTemplate (2.10.0):
-    - KakaoSDKCommon/Common (= 2.10.0)
-  - KakaoSDKUser (2.10.0):
-    - KakaoSDKAuth (= 2.10.0)
+    - KakaoSDKCommon/Common (= 2.10.1)
+  - KakaoSDKFriend (2.10.1):
+    - KakaoSDKUser (= 2.10.1)
+  - KakaoSDKLink (2.10.1):
+    - KakaoSDKCommon (= 2.10.1)
+    - KakaoSDKTemplate (= 2.10.1)
+  - KakaoSDKNavi (2.10.1):
+    - KakaoSDKCommon/Common (= 2.10.1)
+  - KakaoSDKStory (2.10.1):
+    - KakaoSDKUser (= 2.10.1)
+  - KakaoSDKTalk (2.10.1):
+    - KakaoSDKTemplate (= 2.10.1)
+    - KakaoSDKUser (= 2.10.1)
+  - KakaoSDKTemplate (2.10.1):
+    - KakaoSDKCommon/Common (= 2.10.1)
+  - KakaoSDKUser (2.10.1):
+    - KakaoSDKAuth (= 2.10.1)
   - RCT-Folly (2020.01.13.00):
     - boost-for-react-native
     - DoubleConversion
@@ -241,9 +241,9 @@ PODS:
   - React-jsinspector (0.64.1)
   - react-native-image-picker (4.8.3):
     - React-Core
-  - react-native-kakao-sdk-all (2.10.1003):
+  - react-native-kakao-sdk-all (2.10.1004):
     - Alamofire (~> 5.6.1)
-    - KakaoSDK (~> 2.10.0)
+    - KakaoSDK (~> 2.10.1)
     - React-Core
   - React-perflogger (0.64.1)
   - React-RCTActionSheet (0.64.1):
@@ -425,20 +425,20 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: cde416483dac037923206447da6e1454df403714
+  DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: 7b423f9e248eae65987838148c36eec1dbfe0b53
   FBReactNativeSpec: 78b64d3350177bf43851e76b3ef06eac3839bf22
-  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  KakaoSDK: ebeabe6cf9f2ccfa2f120f23e1a9773851e0c030
-  KakaoSDKAuth: 94cdbd864a6e1b5691c11aba09d769ea91be107a
-  KakaoSDKCommon: 9edbf77ef59c8594412908e023e64ef07f75db08
-  KakaoSDKFriend: 2a6d78cccbd6ed53ba952b1de1fd4791fdd45825
-  KakaoSDKLink: 697e65a55869d4af625af8f0ed38af0a4b2d6cf2
-  KakaoSDKNavi: ab523bc6fdfb77be920363857fe02f6c2f9e9254
-  KakaoSDKStory: c10624da2d89480dff119264ea312f1c2c5eae37
-  KakaoSDKTalk: fb8ec6e81a9491758a90434940fc7a39bab31448
-  KakaoSDKTemplate: 8c666f742624834ac94151d70821f006af6f3e51
-  KakaoSDKUser: 7969a38f9ccfd788140fa799b6bbaa223f62683e
+  glog: 73c2498ac6884b13ede40eda8228cb1eee9d9d62
+  KakaoSDK: bd9bad52fc5fa57aef57d76fc8cefa64d60b845a
+  KakaoSDKAuth: b4fec62192c2ac8a9375847f666c0932e38afeb5
+  KakaoSDKCommon: 4989e3bae5f4884903bc1df7134e13d0e903d587
+  KakaoSDKFriend: e57664f3be8d856572861c6046b3e387947ee948
+  KakaoSDKLink: 0cdc82d96a693e41cc43cbc429a5b73be57cc2dd
+  KakaoSDKNavi: 9281e7c8927c118dbe03aa9ee1ef6a06ffb53f8e
+  KakaoSDKStory: 0748e3e55e82f871b5d7f142ea890797c6167936
+  KakaoSDKTalk: bcf48e2cd2f9145f59fa68cd3f387c04c5134b58
+  KakaoSDKTemplate: de64dbf7b95c3c95abd91cb38b5c0907f45d3563
+  KakaoSDKUser: 5c5fd4b5864e8b5ac9587fdbb473daf2fa675abf
   RCT-Folly: ec7a233ccc97cc556cf7237f0db1ff65b986f27c
   RCTRequired: ec2ebc96b7bfba3ca5c32740f5a0c6a014a274d2
   RCTTypeSafety: 22567f31e67c3e088c7ac23ea46ab6d4779c0ea5
@@ -451,7 +451,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 124e8f99992490d0d13e0649d950d3e1aae06fe9
   React-jsinspector: 500a59626037be5b3b3d89c5151bc3baa9abf1a9
   react-native-image-picker: e95b4785b685cfc06609bc50ed6fb55b59990c99
-  react-native-kakao-sdk-all: 75ed154ff8b0df19df180b10a981877d9a763d40
+  react-native-kakao-sdk-all: 663a35e0d9e77cfdbae70e96c58d3c98fd8063b7
   React-perflogger: aad6d4b4a267936b3667260d1f649b6f6069a675
   React-RCTActionSheet: fc376be462c9c8d6ad82c0905442fd77f82a9d2a
   React-RCTAnimation: ba0a1c3a2738be224a08092fa7f1b444ab77d309
@@ -466,6 +466,6 @@ SPEC CHECKSUMS:
   ReactCommon: bedc99ed4dae329c4fcf128d0c31b9115e5365ca
   Yoga: a7de31c64fe738607e7a3803e3f591a4b1df7393
 
-PODFILE CHECKSUM: cc58a90edc3d3e8ecbaff3d0b989cea4e84c40a8
+PODFILE CHECKSUM: 64b99b129d8c6131e139e2b85f117fb105add9a8
 
 COCOAPODS: 1.11.3

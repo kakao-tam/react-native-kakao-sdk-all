@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.dependency "React-Core"
 
   s.dependency 'Alamofire', '~> 5.6.1'
-  s.dependency 'KakaoSDK', '~> 2.10.0'
+  s.dependency 'KakaoSDK', '~> 2.10.1'
 end
